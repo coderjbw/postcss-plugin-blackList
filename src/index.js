@@ -23,9 +23,6 @@ function toFixed(number, precision) {
 
 const createPxReplace =
     (rootValue, identifier, unitPrecision, minPixelValue) => (m, $1, $2) => {
-        //   console.log(m);
-        //   console.log($1);
-        //   console.log($2);
         if (!$1) return m;
         if (identifier && m.indexOf(identifier) === 0)
             return m.replace(identifier, '');
@@ -62,7 +59,7 @@ function declarationExists(decls, prop, value) {
     return decls.some(decl => decl.prop === prop && decl.value === value);
 }
 
-module.exports = postcss.plugin('postcss-plugin-blackList', function (options) {
+export default postcss.plugin('postcss-plugin-blacklist', function (options) {
     options = options || {};
     const opts = Object.assign({}, defaultOpts, options);
 
